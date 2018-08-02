@@ -1,0 +1,17 @@
+{
+    "name": "tiechel/php-heroku",
+    "authors": [
+        {
+            "name": "tiechel",
+            "email": "alicetype.luna@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "silex/silex": "^2.3",
+        "monolog/monolog": "^1.23"
+    },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
+    }
+}
