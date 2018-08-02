@@ -1,12 +1,12 @@
 <?php
 
-require '../bootstrap.php';
+require __DIR__.'/../bootstrap.php';
 
-$app = new Sliex\Application();
+$app = new Silex\Application();
 $app['debug'] = true;
 
 // Register the monolog logging service
-$app->register(new Sliex\Provider\MonologServiceProvider(), [
+$app->register(new Silex\Provider\MonologServiceProvider(), [
     'monolog.logfile' => 'php://stderr',
 ]);
 
