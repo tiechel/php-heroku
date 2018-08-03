@@ -16,4 +16,8 @@ $app->get('/', function() use($app) {
     return 'hello root world';
 });
 
+$app->get('/webhook', function() use($app) {
+    return 'crc response';
+});
+
 $app->run();
