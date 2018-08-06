@@ -26,4 +26,19 @@ final class AuthService extends ServiceBase
             $this->accessTokenSecret
         ],true);
     }
+
+    public function responseToken(string $crcToken)
+    {
+        // - A base64 encoded HMAC SHA-256 hash created from the crc_token and your app Consumer Secret
+        // - Valid response_token and JSON format.
+        // - Latency less than 3 seconds.
+        // - 200 HTTP response code.
+        // {
+        // 'response_token': 'sha256=' + base64.b64encode(sha256_hash_digest)
+        // }
+
+        // $this->consumerKeyを使って$crcTokenをHMAC SHA-256でハッシュ化
+        // ハッシュ値をbase64に変換
+        // response_tokenとしてJSONを返す(Controllerの仕事)
+    }
 }
