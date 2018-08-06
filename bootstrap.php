@@ -3,4 +3,6 @@
 require __DIR__.'/vendor/autoload.php';
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+if (file_exists('.env')) {
+    $dotenv->load(__DIR__);
+}
