@@ -9,9 +9,18 @@
     "require": {
         "php": "^7.1",
         "silex/silex": "^2.3",
-        "monolog/monolog": "^1.23"
+        "monolog/monolog": "^1.23",
+        "vlucas/phpdotenv": "^2.5"
     },
     "require-dev": {
         "heroku/heroku-buildpack-php": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     }
 }
