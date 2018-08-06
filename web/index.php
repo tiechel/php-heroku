@@ -2,8 +2,13 @@
 
 require __DIR__.'/../bootstrap.php';
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use App\ControllerResolver;
+
 $app = new Silex\Application();
 $app['debug'] = true;
+$app['resolver'] = new ControllerResolver();
 
 // Register the monolog logging service
 $app->register(new Silex\Provider\MonologServiceProvider(), [
@@ -16,8 +21,6 @@ $app->get('/', function() use($app) {
     return 'hello root world';
 });
 
-$app->get('/webhook', function() use($app) {
-    return 'crc response';
-});
+$app->get('/webhook', 'App\Controller\WebhookController::get');
 
 $app->run();
