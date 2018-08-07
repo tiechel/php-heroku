@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Service\AuthService;
 
-final class WebhookController
+final class WebhookController extends ControllerBase
 {
     private $authService;
 
@@ -17,6 +17,13 @@ final class WebhookController
 
     public function get(Request $request)
     {
-        return new Response($this->authService->toString(), 200);
+        $crcToken = $request->get('crc_token');
+        if ($crcToken === null) {
+            return $this->noContent();
+        }
+
+        return $this->jsonResponse([
+            'response_token' => $this->authService->responseToken($crcToken),
+        ]);
     }
 }
