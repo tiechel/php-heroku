@@ -25,5 +25,6 @@ $app->get('/', function() use($app) {
 });
 
 $app->get('/webhook', 'App\Controller\WebhookController::get');
+$app->post('/webhook', 'App\Controller\WebhookController::post');
 
 $app->run();

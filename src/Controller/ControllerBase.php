@@ -6,9 +6,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class ControllerBase
 {
+    protected function response($content = '', $httpStatusCode = 200): Response
+    {
+        return new Response($content, $httpStatusCode);
+    }
+
     protected function noContent(): Response
     {
-        return new Response('No content', 204);
+        return $this->response('No content', 204);
     }
 
     protected function jsonResponse(array $jsonData = []): Response

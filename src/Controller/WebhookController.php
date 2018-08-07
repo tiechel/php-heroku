@@ -26,4 +26,9 @@ final class WebhookController extends ControllerBase
             'response_token' => $this->authService->responseToken($crcToken),
         ]);
     }
+
+    public function post(Request $request)
+    {
+        return $this->response();
+    }
 }
