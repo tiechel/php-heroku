@@ -27,7 +27,7 @@ final class AuthService extends ServiceBase
     public function responseToken(string $crcToken): string
     {
         $responseToken = base64_encode(
-            hash_hmac('sha256', $crcToken, $this->consumerKey)
+            hash_hmac('sha256', $crcToken, $this->consumerKeySercret, true)
         );
 
         return 'sha256='.$responseToken;
